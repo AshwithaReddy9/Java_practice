@@ -1,0 +1,54 @@
+Replace Prime Index Element Only If Digit Sum Is Even
+
+Example
+
+Input
+
+6
+12 9 45 23 8 17
+
+Prime indexes → 2,3,5
+
+45 → 4+5=9 (odd) → keep
+23 → 2+3=5 (odd) → keep
+17 → 1+7=8 (even) → replace with 8
+
+Output
+12 9 45 23 8 8
+import java.util.*;
+public class Main
+{
+    static boolean ispirme(int num){
+        if(num <=1)
+        return false;
+    for(int i =2;i*i<num;i++){
+        if(num % i == 0)
+        return false;
+    }
+    return true;
+    }
+	public static void main(String[] args) {
+	    Scanner sc = new Scanner(System.in);
+	    int n =sc.nextInt();
+	    int a[] = new int[n];
+	    for(int i =0;i<n;i++){
+	        a[i] = sc.nextInt();
+	    }
+	    for(int i = 0;i<n;i++){
+	        int num = a[i];
+	    int sum =0;
+	    if(ispirme(i)){
+	        while(num >0){
+	            sum += num%10;
+	            num/=10;
+	            if(sum % 2 ==0){
+	                a[i] = 8;
+	            }
+	        }
+	        
+	    }
+	    }
+	    for(int i =0;i<n;i++){
+		System.out.print(a[i]+" ");}
+	}
+}  
